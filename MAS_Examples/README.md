@@ -1,1 +1,1 @@
-#Jupyter Notebooks for experimental purposes
+# Jupyter notebooks for experimental purposes
