@@ -18,7 +18,7 @@ services:
     model: &openai_model "gpt-4o-2024-08-06"  # Anchor for the model field
 #     model: &openai_model "gpt-4o-2024-11-20"  # Anchor for the model field
     embedding: "text-embedding-3-small"
-    api_key: &key "YOUR_API_KEY"  # Actual key needed
+    api_key: &key "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"
     selected_model: *openai_model
     config_list:
       - model: *openai_model
