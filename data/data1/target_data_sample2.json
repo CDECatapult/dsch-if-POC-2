@@ -1,0 +1,11 @@
+{
+  "identifier": 456,
+  "full_name": "Jane Smith",
+  "years_old": 34,
+  "location": {
+    "address_line": "456 Oak Ave",
+    "city_name": "Greenwood",
+    "postal_code": "67890"
+  },
+  "signup_date": "2023-05-22"
+}

@@ -1,0 +1,19 @@
+{
+    "title": "Target Data Schema",
+    "type": "object",
+    "properties": {
+      "identifier": {"type": "integer"},
+      "full_name": {"type": "string"},
+      "years_old": {"type": "integer"},
+      "location": {
+        "type": "object",
+        "properties": {
+          "address_line": {"type": "string"},
+          "city_name": {"type": "string"},
+          "postal_code": {"type": "string"}
+        }
+      },
+      "signup_date": {"type": "string", "format": "date"}
+    },
+    "required": ["identifier", "full_name", "years_old", "location", "signup_date"]
+  }

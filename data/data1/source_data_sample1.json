@@ -1,0 +1,11 @@
+{
+    "id": "123",
+    "name": "John Doe",
+    "age": 29,
+    "address": {
+      "street": "123 Elm St",
+      "city": "Springfield",
+      "zipcode": "12345"
+    },
+    "registered_at": "2022-10-15T13:45:30"
+  }

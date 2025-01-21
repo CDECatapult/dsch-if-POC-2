@@ -1,0 +1,12 @@
+{
+  "identifier": 123,
+  "full_name": "John Doe",
+  "years_old": 29,
+  "location": {
+    "address_line": "123 Elm St",
+    "city_name": "Springfield",
+    "postal_code": "12345"
+  },
+  "signup_date": "2022-10-15"
+}
+

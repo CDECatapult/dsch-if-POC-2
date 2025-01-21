@@ -1,0 +1,126 @@
+{
+    "clientIdentifier": "12345",
+    "fullName": "John Doe",
+    "primaryContact": {
+      "emailAddress": "john.doe@example.com",
+      "contactNumber": "+1234567890",
+      "location": {
+        "addressLine": "123 Elm St",
+        "cityName": "Springfield",
+        "stateCode": "IL",
+        "zipCode": "62704",
+        "countryCode": "USA"
+      }
+    },
+    "bankAccount": {
+      "accountId": "987654321",
+      "type": "savings",
+      "currentBalance": 10000.50,  
+      "created": "2022-01-15"
+    },
+    "userPreferences": {
+      "preferredLanguage": "en",
+      "notificationPreferences": {
+        "viaEmail": true,
+        "viaSms": false,
+        "viaPhone": true
+      }
+    },
+    "planSubscription": {
+      "currentPlan": "premium",
+      "nextRenewal": "2024-02-10",
+      "autoRenewalEnabled": true
+    },
+    "employmentDetails": {
+      "positionTitle": "Software Engineer",
+      "employer": "Tech Corp",
+      "annualIncome": "85000",  
+      "dateOfHire": "2019-07-01"
+    },
+    "financialSnapshot": {
+      "yearlyIncome": 85000,
+      "annualExpenses": 30000,
+      "currentDebt": 5000,
+      "creditRating": "750"
+    },
+    "familyDependents": [
+      {
+        "dependentName": "Jane Doe",
+        "dependentAge": 5,
+        "relationToClient": "daughter"
+      },
+      {
+        "dependentName": "Jake Doe",
+        "dependentAge": 3,
+        "relationToClient": "son"
+      }
+    ],
+    "investmentRiskProfile": {
+      "toleranceLevel": "high",
+      "horizonInYears": 5,
+      "assetPreferences": ["stocks", "real estate"]
+    },
+    "portfolioDetails": {
+      "holdings": [
+        {
+          "assetClass": "stock",
+          "companyName": "Apple Inc.",
+          "tickerSymbol": "AAPL",
+          "quantityOwned": 50,
+          "marketValue": 7500  
+        },
+        {
+          "assetClass": "real estate",
+          "propertyLocation": "New York, NY",
+          "marketValue": 250000
+        }
+      ],
+      "portfolioValue": 257500  
+    },
+    "insurancePolicy": {
+      "policyId": "INS-123456",
+      "coverage": 100000,
+      "insurer": "ABC Insurance",
+      "expirationDate": "2025-08-30"
+    },
+    "identityDocuments": [
+      {
+        "docType": "passport",
+        "docId": "A1234567",
+        "validUntil": "2028-12-31"
+      },
+      {
+        "docType": "driver_license",
+        "docId": "D7654321",
+        "validUntil": "2026-05-20"
+      }
+    ],
+    "taxationDetails": {
+      "taxIdentifier": "SSN-987-65-4320",
+      "filingCategory": "single",
+      "lastFiledDate": "2023-04-15"
+    },
+    "emergencyContactInfo": {
+      "contactName": "Jane Smith",
+      "relationship": "sister",
+      "contactPhone": "+1098765432"
+    },
+    "loyaltyDetails": {
+      "pointBalance": 1200,
+      "statusLevel": "gold",
+      "joinedDate": "2021-06-01"
+    },
+    "recentLogin": {
+      "lastAccess": "2024-11-11T10:30:00Z",
+      "accessedFromIp": "192.168.1.1",
+      "accessDevice": "iPhone"
+    },
+    "termsOfService": {
+      "hasAccepted": true,
+      "notesOnClient": [
+      "Preferred contact time: afternoons",
+      "Customer mentioned interest in renewable energy investments"
+      ]
+    }
+  }
+  

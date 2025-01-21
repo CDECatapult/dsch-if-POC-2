@@ -1,0 +1,137 @@
+[tool.poetry]
+name = "aidi"
+version = "0.2.0"
+description = "AI Assistant for Data Interoperability"
+authors = ["Senol Isci <senol.isci@digicatapult.org.uk>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "aidi"}]
+
+
+[tool.poetry.dependencies]
+python  = ">=3.9,<3.13"
+autogen-agentchat = "^0.2"
+instructor = "^1.6.3"
+pyyaml = "^6.0.2"
+rdflib = "^7.1.1"
+deepdiff = ">=8.0.1"
+jsonschema = "^4.22.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.7.3"
+mypy = "^1.14.1"
+pdoc = "^15.0.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = ">8.3"
+tox = ">=4.19"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+aidi = "aidi.aidi:main"
+
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "translation_folder"
+]
+line-length = 79
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "N",  # PEP8 naming convetions
+    "D"  # pydocstyle
+]
+ignore = [
+    "C901",  # too complex
+    "W191",  # indentation contains tabs
+    "D401"  # imperative mood
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+exclude = [
+    'translation_folder'  # TOML literal string (single-quotes, no escaping necessary)
+]
+ignore_missing_imports = true
+disable_error_code = ["import-untyped"]
+
+
+[tool.tox]
+legacy_tox_ini = """
+    [tox]
+    min_version = 4.19
+    env_list =
+        3.10
+        3.11
+        3.12
+        typing
+        linting
+        formatting
+
+    [testenv]
+    allowlist_externals = poetry
+    commands_pre =
+        poetry install --no-root --sync
+    commands =
+        poetry run pytest tests/ --import-mode importlib
+
+
+    [testenv:typing]
+    deps = mypy
+    commands = mypy aidi
+
+
+    [testenv:linting]
+    deps = ruff
+    commands = ruff check
+
+
+    [testenv:formatting]
+    deps = ruff
+    commands = ruff format
+
+
+"""

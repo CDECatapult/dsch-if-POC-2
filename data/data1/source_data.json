@@ -1,0 +1,11 @@
+{
+  "id": "789",
+  "name": "Michael Bird",
+  "age": 41,
+  "address": {
+    "street": "789 Maple Blvd",
+    "city": "Lakeside",
+    "zipcode": "54321"
+  },
+  "registered_at": "2021-11-10T14:20:00"
+}

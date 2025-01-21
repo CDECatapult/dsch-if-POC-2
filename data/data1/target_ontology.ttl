@@ -1,0 +1,53 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/target_ontology#> .
+
+:User rdf:type owl:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "A person who is using a system or service." .
+
+:hasIdentifier rdf:type owl:DatatypeProperty ;
+    rdfs:domain :User ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Unique identifier for the user" .
+
+:hasFullName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :User ;
+    rdfs:range xsd:string ;
+    rdfs:label "Full name of the user" .
+
+:hasYearsOld rdf:type owl:DatatypeProperty ;
+    rdfs:domain :User ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Age of the user" .
+
+:hasLocation rdf:type owl:ObjectProperty ;
+    rdfs:domain :User ;
+    rdfs:range :Location ;
+    rdfs:label "Location where the user lives." .
+
+:Location rdf:type owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "A place where the user lives, which consists of address line, city, and postal code." .
+
+:hasAddressLine rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string ;
+    rdfs:label "Address line where the user lives" .
+
+:hasCityName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string ;
+    rdfs:label "City where the user lives" .
+
+:hasPostalCode rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string ;
+    rdfs:label "Postal code of the location" .
+    
+:hasSignupDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :User ;
+    rdfs:range xsd:date ;
+    rdfs:label "Date the user signed up for the service" .
