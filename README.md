@@ -91,6 +91,7 @@ Ensure you have the following installed:
     
 2.  Install dependencies using Poetry:
     ```bash
+    poetry shell
     poetry install
     ``` 
     

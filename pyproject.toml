@@ -22,6 +22,7 @@ jsonschema = "^4.22.0"
 ruff = "^0.7.3"
 mypy = "^1.14.1"
 pdoc = "^15.0.0"
+tox-gh-actions = ">=3.0"
 
 
 [tool.poetry.group.test.dependencies]
@@ -104,9 +105,9 @@ legacy_tox_ini = """
     [tox]
     min_version = 4.19
     env_list =
-        3.10
-        3.11
-        3.12
+        py310
+        py311
+        py312
         typing
         linting
         formatting
@@ -114,7 +115,7 @@ legacy_tox_ini = """
     [testenv]
     allowlist_externals = poetry
     commands_pre =
-        poetry install --no-root --sync
+        poetry install --no-root
     commands =
         poetry run pytest tests/ --import-mode importlib
 
@@ -133,5 +134,9 @@ legacy_tox_ini = """
     deps = ruff
     commands = ruff format
 
-
+    [gh-actions]
+    python =
+        3.10: py310
+        3.11: py311
+        3.12: py312, typing, linting, formatting
 """
