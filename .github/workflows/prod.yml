@@ -2,6 +2,7 @@ name: Production
 
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # Build the documentation and (disabled) upload the static HTML files as an artifact.
+
 on:
   push:
     branches:
@@ -57,12 +58,19 @@ jobs:
   build:
     name: Build the documentation with ${{ matrix.python-version }} on ${{ matrix.os }}
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12" ]
+        os: 
+          - ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: ${{ matrix.python-version }}
 
       - name: Cache Poetry Dependencies
         uses: actions/cache@v3
