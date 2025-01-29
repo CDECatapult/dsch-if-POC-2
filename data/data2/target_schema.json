@@ -1,0 +1,217 @@
+{
+  "title": "TargetClientData",
+  "type": "object",
+  "properties": {
+    "clientIdentifier": { "type": "string" },
+    "fullName": { "type": "string" },
+    "primaryContact": {
+      "type": "object",
+      "properties": {
+        "emailAddress": { "type": "string", "format": "email" },
+        "contactNumber": { "type": "string" },
+        "location": {
+          "type": "object",
+          "properties": {
+            "addressLine": { "type": "string" },
+            "cityName": { "type": "string" },
+            "stateCode": { "type": "string" },
+            "zipCode": { "type": "string" },
+            "countryCode": { "type": "string" }
+          },
+          "required": ["addressLine", "cityName", "stateCode", "zipCode", "countryCode"]
+        }
+      },
+      "required": ["emailAddress", "contactNumber", "location"]
+    },
+    "bankAccount": {
+      "type": "object",
+      "properties": {
+        "accountId": { "type": "string" },
+        "type": { "type": "string" },
+        "currentBalance": { "type": "number" },
+        "created": { "type": "string", "format": "date" }
+      },
+      "required": ["accountId", "type", "currentBalance", "created"]
+    },
+    "userPreferences": {
+      "type": "object",
+      "properties": {
+        "preferredLanguage": { "type": "string" },
+        "notificationPreferences": {
+          "type": "object",
+          "properties": {
+            "viaEmail": { "type": "boolean" },
+            "viaSms": { "type": "boolean" },
+            "viaPhone": { "type": "boolean" }
+          },
+          "required": ["viaEmail", "viaSms", "viaPhone"]
+        }
+      },
+      "required": ["preferredLanguage", "notificationPreferences"]
+    },
+    "planSubscription": {
+      "type": "object",
+      "properties": {
+        "currentPlan": { "type": "string" },
+        "nextRenewal": { "type": "string", "format": "date" },
+        "autoRenewalEnabled": { "type": "boolean" }
+      },
+      "required": ["currentPlan", "nextRenewal", "autoRenewalEnabled"]
+    },
+    "employmentDetails": {
+      "type": "object",
+      "properties": {
+        "positionTitle": { "type": "string" },
+        "employer": { "type": "string" },
+        "annualIncome": { "type": "string" },
+        "dateOfHire": { "type": "string", "format": "date" }
+      },
+      "required": ["positionTitle", "employer", "annualIncome", "dateOfHire"]
+    },
+    "financialSnapshot": {
+      "type": "object",
+      "properties": {
+        "yearlyIncome": { "type": "integer" },
+        "annualExpenses": { "type": "integer" },
+        "currentDebt": { "type": "integer" },
+        "creditRating": { "type": "string" }
+      },
+      "required": ["yearlyIncome", "annualExpenses", "currentDebt", "creditRating"]
+    },
+    "familyDependents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dependentName": { "type": "string" },
+          "dependentAge": { "type": "integer" },
+          "relationToClient": { "type": "string" }
+        },
+        "required": ["dependentName", "dependentAge", "relationToClient"]
+      }
+    },
+    "investmentRiskProfile": {
+      "type": "object",
+      "properties": {
+        "toleranceLevel": { "type": "string" },
+        "horizonInYears": { "type": "integer" },
+        "assetPreferences": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["toleranceLevel", "horizonInYears", "assetPreferences"]
+    },
+    "portfolioDetails": {
+      "type": "object",
+      "properties": {
+        "holdings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "assetClass": { "type": "string" },
+              "companyName": { "type": "string" },
+              "tickerSymbol": { "type": "string" },
+              "quantityOwned": { "type": "integer" },
+              "marketValue": { "type": "integer" },
+              "propertyLocation": { "type": "string" }
+            },
+            "required": ["assetClass", "marketValue"]
+          }
+        },
+        "portfolioValue": { "type": "integer" }
+      },
+      "required": ["holdings", "portfolioValue"]
+    },
+    "insurancePolicy": {
+      "type": "object",
+      "properties": {
+        "policyId": { "type": "string" },
+        "coverage": { "type": "integer" },
+        "insurer": { "type": "string" },
+        "expirationDate": { "type": "string", "format": "date" }
+      },
+      "required": ["policyId", "coverage", "insurer", "expirationDate"]
+    },
+    "identityDocuments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "docType": { "type": "string" },
+          "docId": { "type": "string" },
+          "validUntil": { "type": "string", "format": "date" }
+        },
+        "required": ["docType", "docId", "validUntil"]
+      }
+    },
+    "taxationDetails": {
+      "type": "object",
+      "properties": {
+        "taxIdentifier": { "type": "string" },
+        "filingCategory": { "type": "string" },
+        "lastFiledDate": { "type": "string", "format": "date" }
+      },
+      "required": ["taxIdentifier", "filingCategory", "lastFiledDate"]
+    },
+    "emergencyContactInfo": {
+      "type": "object",
+      "properties": {
+        "contactName": { "type": "string" },
+        "relationship": { "type": "string" },
+        "contactPhone": { "type": "string" }
+      },
+      "required": ["contactName", "relationship", "contactPhone"]
+    },
+    "loyaltyDetails": {
+      "type": "object",
+      "properties": {
+        "pointBalance": { "type": "integer" },
+        "statusLevel": { "type": "string" },
+        "joinedDate": { "type": "string", "format": "date" }
+      },
+      "required": ["pointBalance", "statusLevel", "joinedDate"]
+    },
+    "recentLogin": {
+      "type": "object",
+      "properties": {
+        "lastAccess": { "type": "string", "format": "date-time" },
+        "accessedFromIp": { "type": "string" },
+        "accessDevice": { "type": "string" }
+      },
+      "required": ["lastAccess", "accessedFromIp", "accessDevice"]
+    },
+    "termsOfService": {
+      "type": "object",
+      "properties": {
+        "hasAccepted": { "type": "boolean" },
+        "notesOnClient": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["hasAccepted", "notesOnClient"]
+    }
+  },
+  "required": [
+    "clientIdentifier",
+    "fullName",
+    "primaryContact",
+    "bankAccount",
+    "userPreferences",
+    "planSubscription",
+    "employmentDetails",
+    "financialSnapshot",
+    "familyDependents",
+    "investmentRiskProfile",
+    "portfolioDetails",
+    "insurancePolicy",
+    "identityDocuments",
+    "taxationDetails",
+    "emergencyContactInfo",
+    "loyaltyDetails",
+    "recentLogin",
+    "termsOfService"
+  ]
+}

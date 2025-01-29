@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "Category": {
+            "type": "string",
+            "description": "The category of the item."
+        },
+        "ss_epd_id": {
+            "type": "string",
+            "description": "The unique identifier for the Environmental Product Declaration (EPD)."
+        }
+    },
+    "required": ["Category", "ss_epd_id"],
+    "additionalProperties": false
+}

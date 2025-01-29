@@ -1,0 +1,213 @@
+{
+    "type": "object",
+    "properties": {
+      "client_id": { "type": "string" },
+      "name": {
+        "type": "object",
+        "properties": {
+          "first_name": { "type": "string" },
+          "last_name": { "type": "string" }
+        },
+        "required": ["first_name", "last_name"]
+      },
+      "contact_info": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string", "format": "email" },
+          "phone": { "type": "string" },
+          "address": {
+            "type": "object",
+            "properties": {
+              "street": { "type": "string" },
+              "city": { "type": "string" },
+              "state": { "type": "string" },
+              "postal_code": { "type": "string" },
+              "country": { "type": "string" }
+            },
+            "required": ["street", "city", "state", "postal_code", "country"]
+          }
+        },
+        "required": ["email", "phone", "address"]
+      },
+      "account": {
+        "type": "object",
+        "properties": {
+          "account_number": { "type": "string" },
+          "account_type": { "type": "string" },
+          "balance": { "type": "number" },
+          "currency": { "type": "string" },
+          "created_date": { "type": "string", "format": "date-time" }
+        },
+        "required": ["account_number", "account_type", "balance", "currency", "created_date"]
+      },
+      "preferences": {
+        "type": "object",
+        "properties": {
+          "language": { "type": "string" },
+          "communication": {
+            "type": "object",
+            "properties": {
+              "email": { "type": "boolean" },
+              "sms": { "type": "boolean" },
+              "phone": { "type": "boolean" }
+            },
+            "required": ["email", "sms", "phone"]
+          }
+        },
+        "required": ["language", "communication"]
+      },
+      "subscription": {
+        "type": "object",
+        "properties": {
+          "plan": { "type": "string" },
+          "renewal_date": { "type": "string", "format": "date" },
+          "auto_renew": { "type": "boolean" }
+        },
+        "required": ["plan", "renewal_date", "auto_renew"]
+      },
+      "employment": {
+        "type": "object",
+        "properties": {
+          "job_title": { "type": "string" },
+          "company_name": { "type": "string" },
+          "salary": { "type": "number" },
+          "start_date": { "type": "string", "format": "date" }
+        },
+        "required": ["job_title", "company_name", "salary", "start_date"]
+      },
+      "financial_profile": {
+        "type": "object",
+        "properties": {
+          "income": { "type": "number" },
+          "expenses": { "type": "number" },
+          "debt": { "type": "number" },
+          "credit_score": { "type": "integer" }
+        },
+        "required": ["income", "expenses", "debt", "credit_score"]
+      },
+      "dependents": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "age": { "type": "integer" },
+            "relationship": { "type": "string" }
+          },
+          "required": ["name", "age", "relationship"]
+        }
+      },
+      "risk_profile": {
+        "type": "object",
+        "properties": {
+          "risk_tolerance": { "type": "string" },
+          "investment_horizon": { "type": "integer" },
+          "preferred_assets": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["risk_tolerance", "investment_horizon", "preferred_assets"]
+      },
+      "investment_portfolio": {
+        "type": "object",
+        "properties": {
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": { "type": "string" },
+                "name": { "type": "string" },
+                "symbol": { "type": "string" },
+                "quantity": { "type": "integer" },
+                "value": { "type": "number" },
+                "location": { "type": "string" }
+              },
+              "required": ["type", "value"]
+            }
+          },
+          "total_value": { "type": "number" }
+        },
+        "required": ["assets", "total_value"]
+      },
+      "insurance": {
+        "type": "object",
+        "properties": {
+          "policy_number": { "type": "string" },
+          "coverage_amount": { "type": "number" },
+          "provider": { "type": "string" },
+          "expiry_date": { "type": "string", "format": "date" }
+        },
+        "required": ["policy_number", "coverage_amount", "provider", "expiry_date"]
+      },
+      "documents": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string" },
+            "number": { "type": "string" },
+            "expiry_date": { "type": "string", "format": "date" }
+          },
+          "required": ["type", "number", "expiry_date"]
+        }
+      },
+      "tax_info": {
+        "type": "object",
+        "properties": {
+          "tax_id": { "type": "string" },
+          "filing_status": { "type": "string" },
+          "last_filed": { "type": "string", "format": "date" }
+        },
+        "required": ["tax_id", "filing_status", "last_filed"]
+      },
+      "emergency_contact": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "relation": { "type": "string" },
+          "phone": { "type": "string" }
+        },
+        "required": ["name", "relation", "phone"]
+      },
+      "loyalty_program": {
+        "type": "object",
+        "properties": {
+          "points_balance": { "type": "integer" },
+          "membership_level": { "type": "string" },
+          "enrolled_date": { "type": "string", "format": "date" }
+        },
+        "required": ["points_balance", "membership_level", "enrolled_date"]
+      },
+      "login_activity": {
+        "type": "object",
+        "properties": {
+          "last_login": { "type": "string", "format": "date-time" },
+          "ip_address": { "type": "string" },
+          "device": { "type": "string" }
+        },
+        "required": ["last_login", "ip_address", "device"]
+      },
+      "terms_accepted": { "type": "boolean" },
+      "notes": { "type": "array", "items": { "type": "string" } }
+    },
+    "required": [
+      "client_id",
+      "name",
+      "contact_info",
+      "account",
+      "preferences",
+      "subscription",
+      "employment",
+      "financial_profile",
+      "dependents",
+      "risk_profile",
+      "investment_portfolio",
+      "insurance",
+      "documents",
+      "tax_info",
+      "emergency_contact",
+      "loyalty_program",
+      "login_activity",
+      "terms_accepted"
+    ]
+  }
+  

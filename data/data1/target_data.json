@@ -1,0 +1,12 @@
+{
+    "identifier": 789,
+    "full_name": "Michael Bird",
+    "years_old": 41,
+    "location": {
+      "address_line": "789 Maple Blvd",
+      "city_name": "Lakeside",
+      "postal_code": "54321"
+    },
+    "signup_date": "2021-11-10"
+  }
+  

@@ -1,0 +1,11 @@
+{
+  "id": "456",
+  "name": "Jane Smith",
+  "age": 34,
+  "address": {
+    "street": "456 Oak Ave",
+    "city": "Greenwood",
+    "zipcode": "67890"
+  },
+  "registered_at": "2023-05-22T09:30:00"
+}

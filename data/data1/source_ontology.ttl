@@ -1,0 +1,49 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/source_ontology#> .
+
+:Person rdf:type owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf :Human ;
+    rdfs:comment "A human being, typically with attributes like name, age, and address." .
+
+:hasName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Name of the person" .
+
+:hasAge rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Age of the person" .
+
+:hasAddress rdf:type owl:ObjectProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Address ;
+    rdfs:label "Address of the person" .
+
+:Address rdf:type owl:Class ;
+    rdfs:label "Address" ;
+    rdfs:comment "A location where a person lives." .
+
+:hasStreet rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Address ;
+    rdfs:range xsd:string ;
+    rdfs:label "Street of the address" .
+
+:hasCity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Address ;
+    rdfs:range xsd:string ;
+    rdfs:label "City of the address" .
+
+:hasZipcode rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Address ;
+    rdfs:range xsd:string ;
+    rdfs:label "Zipcode of the address" .
+
+:hasRegisteredAt rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:Datetime ;
+    rdfs:label "Date and time when the person registered" .
