@@ -108,18 +108,17 @@ prompt:
         - Splitting a source field value into more than one target field value
         Make sure target model values of target fields are populated accordingly.
         Make sure the formats of field values are properly addressed.
-        Insert "PLACEHOLDER" in the generated code if you can not find suitable mappings.
-
 
   user_proxy_system_message:
         - "A human admin. Give the task, and send instructions to perform a data translation."
         - "Do not accept other kind of tasks not related to data translation and transformation."
-
+  
   coder_system_message: |
         Python Code Writer. You will write python code. Wrap the code in a ```python``` code block that specifies the python script type. 
         The user can't modify your code. So do not suggest incomplete code which requires others to modify.
         Don't use a code block if it's not intended to be executed by the executor.
         Don't include multiple code blocks, and only output in one code block response. Do not ask others to copy and paste the result.
+        Insert "PLACEHOLDER" in the generated code if you can not find suitable mappings.
         Always use 'print' to print the output.
         Always start with ```python
         Check the execution result returned by the executor.

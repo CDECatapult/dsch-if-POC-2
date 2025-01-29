@@ -91,7 +91,6 @@ Ensure you have the following installed:
     
 2.  Install dependencies using Poetry:
     ```bash
-    poetry shell
     poetry install
     ``` 
     
@@ -99,7 +98,13 @@ Ensure you have the following installed:
     
     *   Edit the YAML configuration files located in the config/ directory to suit your environment.
         
-    
+Code Quality Checks
+-------------    
+Tox runs linting, formatting, type checks and tests accross different python versions defined in pyproject.toml file.
+
+   ```bash
+   poetry run tox
+   ``` 
 
 Configuration
 -------------
@@ -246,7 +251,7 @@ Contributing
     
 2.  git checkout -b feature-branch
     
-3.  git commit -m "Add new feature"
+3.  git add -A && git commit -m "Add new feature"
     
 4.  Push the branch and open a pull request.
     
