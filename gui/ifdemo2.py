@@ -74,7 +74,7 @@ def read_output_file(directory, filename):
     return ""  # Return empty string if file not found
 
 
-
+# Directory paths
 local_dir = "./"
 directory = "./data/data1/"  # Directory to store input files
 output_directory = "./translation_folder/"
@@ -86,17 +86,11 @@ output_file = (
 # Page layout
 st.set_page_config(layout="wide")
 
-# Title
-# st.image('./if_icon.png', width=50)
-# st.markdown("### AI Assitant for Data Interoperability Demo")
 
-
-tcol1,  tcol2 = st.columns([1,20], gap="small")
+tcol1, tcol2 = st.columns([1, 20], gap="small")
 with tcol1:
-    st.image('./gui/if_icon.png', width=50)
-    #st.image('row_2_col_1.jpg', width=60)
+    st.image("./gui/if_icon.png", width=50)
 with tcol2:
-    # st.write('A Name')
     st.markdown("### AI Assistant for Data Interoperability Demo")
 
 st.markdown("***")
@@ -113,17 +107,23 @@ with col1:
 
     # Bottom Left Quadrant
     st.markdown("##### Input: Source Schema")
-    input_source_schema = st.text_area("", key="input_source_schema", height=200)
+    input_source_schema = st.text_area(
+        "", key="input_source_schema", height=200
+    )
 
     st.button("Run Assistant", on_click=on_run_clicked)
 
 with col2:
     # Top Right Quadrant
     st.markdown("##### Input: Target Schema")
-    input_target_schema = st.text_area("", key="input_target_schema", height=200)
+    input_target_schema = st.text_area(
+        "", key="input_target_schema", height=200
+    )
 
     st.markdown("***")
     # Bottom Right Quadrant
-    # st.markdown("##### Output:Target Schema")
-    st.markdown("<h5 style='color:darkgreen;'>Output: Target Data</h3>", unsafe_allow_html=True)
+    st.markdown(
+        "<h5 style='color:darkgreen;'>Output: Target Data</h3>",
+        unsafe_allow_html=True,
+    )
     output_target_data = st.text_area("", key="output_target_data", height=200)
