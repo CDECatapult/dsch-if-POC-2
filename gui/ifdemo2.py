@@ -9,6 +9,25 @@ import subprocess
 import streamlit as st
 
 
+def on_run_clicked():
+    """Run the AI Assistant for Data Interoperability."""
+    # Save inputs to files
+    save_text_to_file(directory, "source_data.json", top_left)
+    save_text_to_file(directory, "source_schema.json", bottom_left)
+    save_text_to_file(directory, "target_schema.json", top_right)
+
+    st.success("Inputs saved. Running assistant...")
+    run_mytool(local_dir)
+
+    print("TOOL EXITED!")
+
+    # Read and update the bottom left text area with mytool's output
+    output_content = read_output_file(output_directory, output_file)
+    print(output_content)
+
+    st.session_state.output_target_data = output_content
+
+
 def save_text_to_file(directory, filename, content):
     """Save text content to a file in the specified directory."""
     os.makedirs(directory, exist_ok=True)  # Ensure directory exists
@@ -68,7 +87,9 @@ col1, col2 = st.columns(2, gap="large")
 local_dir = "./"
 directory = "./data/data1/"  # Directory to store input files
 output_directory = "./translation_folder/"
-output_file = "generated_target_data"  # Expected output file name from mytool
+output_file = (
+    "generated_target_data.json"  # Expected output file name from mytool
+)
 
 with col1:
     st.markdown("##### Input: Source Data")
@@ -81,6 +102,7 @@ with col1:
         height=200,
         value=st.session_state.get("bottom_left", ""),
     )
+    st.button("Run Assistant", on_click=on_run_clicked)
 
 with col2:
     st.markdown("##### Input: Target Schema")
@@ -90,27 +112,6 @@ with col2:
         "<h5 style='color:darkgreen;'>Output: Target Data</h5>",
         unsafe_allow_html=True,
     )
-    bottom_right = st.text_area("", key="bottom_right", height=200)
+    output_target_data = st.text_area("", key="output_target_data", height=200)
 
 
-if st.button("Run Assistant"):
-    # Save inputs to files
-    save_text_to_file(directory, "source_data.json", top_left)
-    save_text_to_file(directory, "source_schema.json", bottom_left)
-    save_text_to_file(directory, "target_schema.json", top_right)
-
-    st.success("Inputs saved. Running assistant...")
-    run_mytool(local_dir)
-
-    print("TOOL EXITED!")
-
-    # Read and update the bottom left text area with mytool's output
-    output_content = read_output_file(output_directory, output_file)
-
-    if output_content:
-        # Update the bottom right text area with mytool's output
-        bottom_right.text_area("", value=output_content, height=200)
-        st.session_state["bottom_right"] = (
-            output_content  # Update session state
-        )
-        st.experimental_rerun()  # Trigger a rerun to reflect the updated content
