@@ -12,9 +12,9 @@ import streamlit as st
 def on_run_clicked():
     """Run the AI Assistant for Data Interoperability."""
     # Save inputs to files
-    save_text_to_file(directory, "source_data.json", top_left)
-    save_text_to_file(directory, "source_schema.json", bottom_left)
-    save_text_to_file(directory, "target_schema.json", top_right)
+    save_text_to_file(directory, "source_data.json", input_source_data)
+    save_text_to_file(directory, "source_schema.json", input_source_schema)
+    save_text_to_file(directory, "target_schema.json", input_target_schema)
 
     st.success("Inputs saved. Running assistant...")
     run_mytool(local_dir)
@@ -26,6 +26,8 @@ def on_run_clicked():
     print(output_content)
 
     st.session_state.output_target_data = output_content
+    with col1:
+        st.success("Assistant is running with inputs!")
 
 
 def save_text_to_file(directory, filename, content):
@@ -72,18 +74,7 @@ def read_output_file(directory, filename):
     return ""  # Return empty string if file not found
 
 
-# Streamlit UI
-st.set_page_config(layout="wide")
 
-tcol1, tcol2 = st.columns([1, 20], gap="small")
-with tcol1:
-    st.image("./gui/if_icon.png", width=50)
-with tcol2:
-    st.markdown("### AI Assistant for Data Interoperability Demo")
-
-st.markdown("***")
-
-col1, col2 = st.columns(2, gap="large")
 local_dir = "./"
 directory = "./data/data1/"  # Directory to store input files
 output_directory = "./translation_folder/"
@@ -91,27 +82,48 @@ output_file = (
     "generated_target_data.json"  # Expected output file name from mytool
 )
 
+
+# Page layout
+st.set_page_config(layout="wide")
+
+# Title
+# st.image('./if_icon.png', width=50)
+# st.markdown("### AI Assitant for Data Interoperability Demo")
+
+
+tcol1,  tcol2 = st.columns([1,20], gap="small")
+with tcol1:
+    st.image('./gui/if_icon.png', width=50)
+    #st.image('row_2_col_1.jpg', width=60)
+with tcol2:
+    # st.write('A Name')
+    st.markdown("### AI Assistant for Data Interoperability Demo")
+
+st.markdown("***")
+
+
+# Layout columns
+col1, col2 = st.columns(2, gap="large")
+
 with col1:
+    # Top Left Quadrant
     st.markdown("##### Input: Source Data")
-    top_left = st.text_area("", key="top_left", height=200)
+    input_source_data = st.text_area("", key="input_source_data", height=200)
     st.markdown("***")
+
+    # Bottom Left Quadrant
     st.markdown("##### Input: Source Schema")
-    bottom_left = st.text_area(
-        "",
-        key="bottom_left",
-        height=200,
-        value=st.session_state.get("bottom_left", ""),
-    )
+    input_source_schema = st.text_area("", key="input_source_schema", height=200)
+
     st.button("Run Assistant", on_click=on_run_clicked)
 
 with col2:
+    # Top Right Quadrant
     st.markdown("##### Input: Target Schema")
-    top_right = st.text_area("", key="top_right", height=200)
+    input_target_schema = st.text_area("", key="input_target_schema", height=200)
+
     st.markdown("***")
-    st.markdown(
-        "<h5 style='color:darkgreen;'>Output: Target Data</h5>",
-        unsafe_allow_html=True,
-    )
+    # Bottom Right Quadrant
+    # st.markdown("##### Output:Target Schema")
+    st.markdown("<h5 style='color:darkgreen;'>Output: Target Data</h3>", unsafe_allow_html=True)
     output_target_data = st.text_area("", key="output_target_data", height=200)
-
-
